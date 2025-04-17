@@ -1,8 +1,8 @@
-# 🇱🇷 LatAm Capitals Theme (WordPress + Vue.js)
+# 🌎 LatAm Capitals Theme (WordPress + Vue.js)
 
 A custom WordPress theme that uses a Vue.js frontend and a custom REST API to display Latin American countries and their capitals.
 
-## Features
+## ⚙️ Features
 
 - Custom WordPress theme with modular structure
 - Custom Post Type (`country`) for storing countries and capitals
@@ -15,7 +15,7 @@ A custom WordPress theme that uses a Vue.js frontend and a custom REST API to di
 - Responsive, SCSS-styled layout with blue background dropdowns
 - Clean code with WP best practices: security, i18n, escaping
 
-## Tech Stack
+## 🖥️ Tech Stack
 
 - **WordPress** (Custom Theme, REST API)
 - **PHP** (with WP best practices)
@@ -24,7 +24,7 @@ A custom WordPress theme that uses a Vue.js frontend and a custom REST API to di
 - **SCSS** (custom styles)
 - **LocalWP** (recommended for dev)
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 1. Clone this theme into your WordPress theme directory:
 
@@ -52,7 +52,7 @@ npx webpack
 
 7. Add new entries under **Countries** in the WP admin, filling in country and capital names.
 
-## API Endpoint
+## 🔌 API Endpoint
 
 **GET** `/wp-json/capitals/v1/list`
 
@@ -67,7 +67,7 @@ npx webpack
 /wp-json/capitals/v1/list?sort_by=capital&direction=desc
 ```
 
-## Folder Structure
+## 📁 Folder Structure
 
 ```
 latam-capitals-theme/
@@ -86,7 +86,7 @@ latam-capitals-theme/
 └── webpack.config.js
 ```
 
-## 🧼 Coding Best Practices
+## 📝 Coding Best Practices
 
 - Prefixed all functions to avoid naming collisions
 - Escaped all outputs using `esc_attr()` / `esc_html_e()`
