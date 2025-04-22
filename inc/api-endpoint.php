@@ -27,10 +27,13 @@ function latam_capitals_handle_api_request($request) {
   $sort_by    = in_array($params['sort_by'] ?? '', ['country', 'capital']) ? $params['sort_by'] : 'country';
   $direction  = strtolower($params['direction'] ?? 'asc') === 'desc' ? 'DESC' : 'ASC';
 
+  $meta_key = $sort_by === 'country' ? 'country_name' : 'capital_name';
+
   $query = new WP_Query([
     'post_type'      => 'country',
     'posts_per_page' => -1,
-    'orderby'        => 'title',
+    'meta_key'       => $meta_key,
+    'orderby'        => 'meta_value',
     'order'          => $direction,
   ]);
 
@@ -43,12 +46,6 @@ function latam_capitals_handle_api_request($request) {
       'capital' => get_post_meta($post->ID, 'capital_name', true),
     ];
   }
-
-  usort($results, function ($a, $b) use ($sort_by, $direction) {
-    $valA = strtolower($a[$sort_by] ?? '');
-    $valB = strtolower($b[$sort_by] ?? '');
-    return $direction === 'DESC' ? strcmp($valB, $valA) : strcmp($valA, $valB);
-  });
 
   return $results;
 }
